@@ -27,6 +27,17 @@ export const renderHTML = (strString) =>{
     );
 }
 
+export const priceFormat = (strPrice, display=false) =>{
+    let floatPrice = parseFloat(strPrice);
+    if(display == true){
+        floatPrice = '$'+floatPrice.toFixed(2);
+    }
+    else{
+        floatPrice = floatPrice.toFixed(2);
+    }
+    return floatPrice;
+}
+
 export const returnFourStacks  = (item, index) => {
     return(
             <Col xs={12} sm={6} md={4} lg={3} key={index}>

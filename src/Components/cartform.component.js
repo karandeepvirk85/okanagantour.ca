@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {DatePicker, Select, InputNumber} from 'antd';
 import {withRouter } from "react-router-dom";
 import {Input} from 'antd';
-import {uniqueId} from '../Common/utiliy.js';
+import {uniqueId, priceFormat} from '../Common/utiliy.js';
 const {TextArea} = Input;
 const {Option} = Select;
 const{RangePicker} = DatePicker;
@@ -37,15 +37,16 @@ class CartForm extends Component{
         if(this.state.start_date.length===0 || this.state.end_date.length===0 || strName.length===0  || this.state.adults===0){
             alert('Please fill all the fields');
         }else{
-            alert(this.props.price);
-            let strStartDate  = this.state.start_date;
-            let strEndDate    = this.state.end_date;
-            let intAdults     = this.state.adults;
-            let intChilds     = this.state.child;
-            let totalMembers  = this.state.child+this.state.adults;
-            let intProductId  = this.props.id;
-            let strTitle      = this.props.title;
-            let strPickup     = this.state.pickup;
+            let strStartDate       = this.state.start_date;
+            let strEndDate         = this.state.end_date;
+            let intAdults          = this.state.adults;
+            let intChilds          = this.state.child;
+            let totalMembers       = this.state.child+this.state.adults;
+            let totalPrice         = priceFormat(totalMembers*this.props.price,false);
+            let totalPriceString   = priceFormat(totalMembers*this.props.price,true);
+            let intProductId       = this.props.id;
+            let strTitle           = this.props.title;
+            let strPickup          = this.state.pickup;
             const objData = {
                 key: uniqueId(),
                 id: intProductId,
@@ -56,7 +57,10 @@ class CartForm extends Component{
                 adults: intAdults,
                 childs: intChilds,
                 pickup: strPickup,
-                description: strDescription
+                description: strDescription,
+                total_member:totalMembers,
+                total_price:totalPrice,
+                price_string:totalPriceString
             }
             this.addToCart(objData);
         }

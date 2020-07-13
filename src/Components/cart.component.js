@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { Table } from 'antd';
 import { Container } from 'react-bootstrap';
 import {DeleteOutlined} from '@ant-design/icons';
+import {priceFormat} from '../Common/utiliy.js';
+
 // All Posts
 console.log(JSON.parse(localStorage.getItem('cart')));
 export default class Cart extends Component{
@@ -13,6 +15,10 @@ export default class Cart extends Component{
                 {title: 'Tour', dataIndex: 'title', key: 'title'},
                 {title: 'Adults', dataIndex: 'adults', key: 'adults'},
                 {title: 'Children', dataIndex: 'childs', key: 'childs'},
+                {title: 'Total', dataIndex: 'total_member', key: 'total_member'},
+                {title: 'Name', dataIndex: 'name', key: 'name'},
+                {title: 'Price', dataIndex: 'price_string', key: 'price_string'},
+                
                 {
                     title: 'Action',
                     dataIndex: '',
@@ -20,8 +26,10 @@ export default class Cart extends Component{
                     render: (record) => <a data-remove={record.key} onClick={this.removeProduct}><DeleteOutlined /></a>,
                 },
             ],
-            cartData:localStorage.getItem('cart')
+            cartData:localStorage.getItem('cart'),
+            cartTotal:priceFormat(this.getCartTotal(),true)
         }
+        this.getCartTotal = this.getCartTotal.bind(this);
     }
     removeProduct = (e) =>{
         const strProductId = e.currentTarget.getAttribute('data-remove');
@@ -34,6 +42,16 @@ export default class Cart extends Component{
 
         localStorage.setItem('cart', JSON.stringify(items));
         this.setState({cartData: localStorage.getItem('cart')});
+        this.setState({cartTotal: this.getCartTotal()});
+    }
+
+    getCartTotal = () =>{
+        let cartTotal = 0;
+        const items = JSON.parse(localStorage.getItem('cart'));
+        items.map((item, index) => {
+            cartTotal += item.total_price;
+        });
+        return cartTotal;
     }
     
     render(){
@@ -48,6 +66,7 @@ export default class Cart extends Component{
                 }}
                 dataSource={JSON.parse(this.state.cartData)}
             />
+            <h2 className="text-right"><span>Your Total:</span> {this.state.cartTotal}</h2>
           </Container>
         )    
     }
