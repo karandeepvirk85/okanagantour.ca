@@ -17,7 +17,7 @@ export default class Type extends Component{
     async componentDidMount(){
         const apiParameters = this.props.category;
         const numberPosts   = this.props.count;
-        const apiEnd        = "http://localhost/oktours/api/wp-json/wp/v2/posts?categories="+apiParameters+"&per_page="+numberPosts;
+        const apiEnd        = "http://okanagantour.ca/api/wp-json/wp/v2/posts?categories="+apiParameters+"&per_page="+numberPosts;
         axios.get(apiEnd)
         .then(response => {
             this.setState({ApiLoading:false, objData:response.data})

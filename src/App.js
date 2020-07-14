@@ -10,6 +10,7 @@ import About from './Components/about.component.js'
 import Contact from './Components/contact.component.js'
 import Single from './Components/single.component.js'
 import Cart from './Components/cart.component.js'
+import Checkout from './Components/checkout.component.js'
 function App(){
 	return (
 		<div className="container-fluid">
@@ -18,6 +19,7 @@ function App(){
 				<Route path ="/" exact component={Home} />                                 
 				<Route path ="/wine" component={Wine} />     
 				<Route path ="/cart" component={Cart} />
+				<Route path = "/checkout" component={Checkout} />
 				<Route path ="/about" component={About} />              
 				<Route path ="/contact" component={Contact}/>
 				<Route path ="/tour/:slug" component={Single}/>          

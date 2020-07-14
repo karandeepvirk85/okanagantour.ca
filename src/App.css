@@ -132,36 +132,43 @@ a.btn-right, button.btn-right {
   font-size: 3rem;
   text-transform: uppercase;
 }
-#root .container-fluid .home-tiles .ant-card {
+#root .container-fluid .home-tiles .tour-image {
+  margin-top: 30px;
+}
+#root .container-fluid .home-tiles .tour-image .ant-card {
   box-shadow: 0px 0px 14px 3px #0000000d;
 }
-#root .container-fluid .home-tiles .ant-card .ant-card-head {
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-head {
   background-color: #7dd4ff;
   letter-spacing: 0px;
   border-bottom: 6px solid #305a6f;
 }
-#root .container-fluid .home-tiles .ant-card .ant-card-head .ant-card-head-title {
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-head .ant-card-head-title {
   color: black;
 }
-#root .container-fluid .home-tiles .ant-card .ant-card-body {
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body {
   white-space: normal;
   padding: 0;
+  white-space: normal;
+  padding: 0;
+  overflow: hidden;
 }
-#root .container-fluid .home-tiles .ant-card .ant-card-body .anticon {
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body img {
+  width: auto;
+  max-height: 250px;
+  min-height: 250px;
+}
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body .anticon {
   position: relative;
   top: -2px;
 }
-#root .container-fluid .home-tiles .ant-card .ant-card-body img {
-  max-width: 100%;
-  max-height: 250px;
-}
-#root .container-fluid .home-tiles .ant-card .ant-card-body .info-tab {
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body .info-tab {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0.6rem;
 }
-#root .container-fluid .home-tiles .ant-card .ant-card-body .info-tab .information-content {
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body .info-tab .information-content {
   padding: 10px 0.5rem;
   display: flex;
   flex-direction: column;
@@ -169,7 +176,7 @@ a.btn-right, button.btn-right {
   align-items: baseline;
   justify-content: center;
 }
-#root .container-fluid .home-tiles .ant-card .ant-card-body .info-tab .information-content p {
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body .info-tab .information-content p {
   font-family: "Fredoka One", cursive;
   margin: 1px 0;
   font-weight: 300;
@@ -177,6 +184,38 @@ a.btn-right, button.btn-right {
   padding: 2px 4%;
   color: #6f6f6f;
   text-shadow: 1px 1px 1px #f9f9f9;
+}
+#root .container-fluid .container.cart-page h2 {
+  font-size: 3rem;
+  color: gray;
+  font-family: "Fredoka One", cursive;
+}
+#root .container-fluid .container.cart-page h2 span {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.5rem;
+}
+#root .container-fluid .container.checkout h1 {
+  margin: 20px;
+}
+#root .container-fluid .container.checkout #PaymentForm {
+  padding: 3rem;
+  background: white;
+  box-shadow: 0px 0px 7px -2px #0000001a;
+}
+#root .container-fluid .container.checkout #PaymentForm h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #999999;
+  font-family: "Fredoka One", cursive;
+}
+#root .container-fluid .container.checkout #PaymentForm h2 span {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.5rem;
+}
+#root .container-fluid .container.checkout #PaymentForm .ant-input {
+  height: 50px;
+  border: 1px solid #999999;
+  border-radius: 4px;
 }
 #root .its-spinner {
   margin: 40px auto;

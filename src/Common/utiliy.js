@@ -40,7 +40,7 @@ export const priceFormat = (strPrice, display=false) =>{
 
 export const returnFourStacks  = (item, index) => {
     return(
-            <Col xs={12} sm={6} md={4} lg={3} key={index}>
+            <Col className="tour-image" sm={12} md={6} lg={4} xl={3} key={index}>
                 <Card title={renderHTML(item.title.rendered)} bordered={false}>
                 {typeof item.acf.image_1 != "undefined" && item.acf.image_1 != null && <img src={item.acf.image_1.url} />}
                     <div className="info-tab">

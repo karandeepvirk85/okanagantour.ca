@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { Table } from 'antd';
-import { Container } from 'react-bootstrap';
-import {DeleteOutlined} from '@ant-design/icons';
+import {Table, message} from 'antd';
+import {Link} from 'react-router-dom';
+import {Container, Row, Col} from 'react-bootstrap';
+import {DeleteOutlined, LeftOutlined, RightOutlined} from '@ant-design/icons';
 import {priceFormat} from '../Common/utiliy.js';
 
 // All Posts
@@ -36,13 +37,14 @@ export default class Cart extends Component{
         const items = JSON.parse(this.state.cartData);
         items.map((item, index) => {
             if(item.key === strProductId){
-                items.splice(index, 1);      
+                items.splice(index, 1);
             }
         });
 
         localStorage.setItem('cart', JSON.stringify(items));
         this.setState({cartData: localStorage.getItem('cart')});
         this.setState({cartTotal: this.getCartTotal()});
+        message.success('Tour is removed');
     }
 
     getCartTotal = () =>{
@@ -51,23 +53,35 @@ export default class Cart extends Component{
         items.map((item, index) => {
             cartTotal += item.total_price;
         });
+        localStorage.setItem('cart_total', cartTotal);
         return cartTotal;
     }
     
     render(){
         return(
-            <Container>
-            <h1>CART</h1>
-            <Table
-                columns={this.state.columns}
-                expandable={{
-                    expandedRowRender: record => <p style={{ margin: 0 }}>{record.description}</p>,
-                    rowExpandable: record => record.description !== 'N/A/E',
-                }}
-                dataSource={JSON.parse(this.state.cartData)}
-            />
-            <h2 className="text-right"><span>Your Total:</span> {this.state.cartTotal}</h2>
-          </Container>
+            <Container className="cart-page">
+                <h1>CART</h1>
+                <Table
+                    columns={this.state.columns}
+                    expandable={{
+                        expandedRowRender: record => <p style={{ margin: 0 }}>{record.description}</p>,
+                        rowExpandable: record => record.description !== 'N/A/E',
+                    }}
+                    dataSource={JSON.parse(this.state.cartData)}
+                />
+                <h2 className="text-right"><span>Your Total:</span> {this.state.cartTotal}</h2>
+                <Row>
+                    <Col md={4}>
+                        <Link to = "/wine" class="btn-block btn btn-left btn-main"><LeftOutlined /> Wine Tours</Link>
+                    </Col>
+                    <Col md={4}>
+                        <Link to = "/activity" class="btn-block btn btn-left btn-main"><LeftOutlined /> Activity Tours</Link>
+                    </Col>
+                    <Col md={4}>
+                        <Link to = "/checkout" class="btn-block btn btn-right btn-main">Proceed To Checkout <RightOutlined /></Link>
+                    </Col>
+                </Row>
+            </Container>
         )    
     }
 }
