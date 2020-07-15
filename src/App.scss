@@ -40,6 +40,11 @@ a, button{
         justify-content: flex-end;
         align-items: center;
     }
+    &.btn-book{
+        color: #192f3a;
+        background-color: #7dd4ff;
+        border: 1px solid #192f3a;
+    }
 }
 #root{
     background-color:$background-color;
@@ -136,16 +141,36 @@ a, button{
         }
     }
     .container-fluid{
-        .home-tiles{
-            h1{
-                font-family: $primary-font;
-                color: #333333;
-                letter-spacing: 2px;
-                font-size: 3rem;
-                text-transform: uppercase;
+        .type-container{
+            .home-tiles{
+                .tour-title-bar{
+                    display:none;
+                }
             }
             .tour-image{
                 margin-top: 30px;
+            }
+        }
+        .home-tiles{
+            .tour-title-bar{
+                background: #f3f3f3;
+                border-bottom: 1px dashed #6da0b9;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 10px 0;
+                padding-right: 10px;
+                h1{
+                    font-family: "Fredoka One", cursive;
+                    color: #828282;
+                    letter-spacing: 2px;
+                    font-size: 3rem;
+                    text-transform: uppercase;
+                    padding: 4px 14px;
+                    margin:0;
+                }
+            }
+            .tour-image{
                 .ant-card{
                     box-shadow: 0px 0px 14px 3px #0000000d;
                     .ant-card-head{
@@ -159,10 +184,19 @@ a, button{
                     .ant-card-body{
                         white-space: normal;
                         padding: 0;
-                        img{
-                            width: auto;
-                            max-height: 250px;
-                            min-height: 250px;
+                        .image-container{
+                            overflow: hidden;
+                            img{
+                                transition: 0.5s;                                
+                                width: auto;
+                                max-height: 250px;
+                                min-height: 250px;
+                            }
+                            &:hover{
+                                img{
+                                    transform: scale(1.2);
+                                }
+                            }
                         }
                         white-space: normal;
                         padding: 0;

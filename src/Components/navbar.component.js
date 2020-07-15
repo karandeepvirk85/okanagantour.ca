@@ -15,9 +15,9 @@ export default class Header extends Component{
                             <Link className="nav-link" to="/wine">          Wine                </Link>
                             <Link className="nav-link" to="/activities">    Activities          </Link>
                             <Link className="nav-link" to="/about">         About               </Link>
-                            <Link className="nav-link" to="/contact">       <PhoneOutlined />   </Link>
-                            <Link className="nav-link" to="/cart">          <ShoppingCartOutlined/></Link>
-                            <Link className="nav-link" to="/checkout">    <CreditCardOutlined /></Link>
+                            <Link className="nav-link" to="/contact">       Contact             </Link>
+                            <Link className="nav-link" to="/cart">          <ShoppingCartOutlined/> Cart </Link>
+                            <Link className="nav-link" to="/checkout">      Checkout</Link>
                         </Nav>
                     </Navbar.Collapse>
             </Navbar>

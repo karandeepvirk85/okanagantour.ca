@@ -3,12 +3,11 @@ import {Table, message} from 'antd';
 import {Link} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
 import {DeleteOutlined, LeftOutlined, RightOutlined} from '@ant-design/icons';
-import {priceFormat} from '../Common/utiliy.js';
+import {priceFormat, getCartTotal, getCart} from '../Common/utiliy.js';
 
 // All Posts
-console.log(JSON.parse(localStorage.getItem('cart')));
 export default class Cart extends Component{
-    constructor(props){
+    constructor(props){        
         super(props);
         this.state = {
             remmoved:false,
@@ -18,8 +17,7 @@ export default class Cart extends Component{
                 {title: 'Children', dataIndex: 'childs', key: 'childs'},
                 {title: 'Total', dataIndex: 'total_member', key: 'total_member'},
                 {title: 'Name', dataIndex: 'name', key: 'name'},
-                {title: 'Price', dataIndex: 'price_string', key: 'price_string'},
-                
+                {title: 'Price', dataIndex: 'price_string', key: 'price_string'}, 
                 {
                     title: 'Action',
                     dataIndex: '',
@@ -27,11 +25,12 @@ export default class Cart extends Component{
                     render: (record) => <a data-remove={record.key} onClick={this.removeProduct}><DeleteOutlined /></a>,
                 },
             ],
-            cartData:localStorage.getItem('cart'),
-            cartTotal:priceFormat(this.getCartTotal(),true)
+            cartData:getCart(),
+            cartTotal:getCartTotal()
         }
-        this.getCartTotal = this.getCartTotal.bind(this);
+        this.removeProduct = this.removeProduct.bind(this);
     }
+    
     removeProduct = (e) =>{
         const strProductId = e.currentTarget.getAttribute('data-remove');
         const items = JSON.parse(this.state.cartData);
@@ -40,23 +39,12 @@ export default class Cart extends Component{
                 items.splice(index, 1);
             }
         });
-
         localStorage.setItem('cart', JSON.stringify(items));
-        this.setState({cartData: localStorage.getItem('cart')});
-        this.setState({cartTotal: this.getCartTotal()});
-        message.success('Tour is removed');
+        this.setState({cartData: getCart()});
+        this.setState({cartTotal: getCartTotal()});
+        message.success('Item is removed from cart');
     }
 
-    getCartTotal = () =>{
-        let cartTotal = 0;
-        const items = JSON.parse(localStorage.getItem('cart'));
-        items.map((item, index) => {
-            cartTotal += item.total_price;
-        });
-        localStorage.setItem('cart_total', cartTotal);
-        return cartTotal;
-    }
-    
     render(){
         return(
             <Container className="cart-page">
@@ -69,7 +57,7 @@ export default class Cart extends Component{
                     }}
                     dataSource={JSON.parse(this.state.cartData)}
                 />
-                <h2 className="text-right"><span>Your Total:</span> {this.state.cartTotal}</h2>
+                <h2 className="text-right"><span>Your Total:</span> {priceFormat(this.state.cartTotal,true)}</h2>
                 <Row>
                     <Col md={4}>
                         <Link to = "/wine" class="btn-block btn btn-left btn-main"><LeftOutlined /> Wine Tours</Link>

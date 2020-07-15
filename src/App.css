@@ -37,6 +37,11 @@ a.btn-right, button.btn-right {
   justify-content: flex-end;
   align-items: center;
 }
+a.btn-book, button.btn-book {
+  color: #192f3a;
+  background-color: #7dd4ff;
+  border: 1px solid #192f3a;
+}
 
 #root {
   background-color: #f9f9f9;
@@ -125,15 +130,29 @@ a.btn-right, button.btn-right {
   width: 100%;
   margin-top: 4px;
 }
-#root .container-fluid .home-tiles h1 {
+#root .container-fluid .type-container .home-tiles .tour-title-bar {
+  display: none;
+}
+#root .container-fluid .type-container .tour-image {
+  margin-top: 30px;
+}
+#root .container-fluid .home-tiles .tour-title-bar {
+  background: #f3f3f3;
+  border-bottom: 1px dashed #6da0b9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding-right: 10px;
+}
+#root .container-fluid .home-tiles .tour-title-bar h1 {
   font-family: "Fredoka One", cursive;
-  color: #333333;
+  color: #828282;
   letter-spacing: 2px;
   font-size: 3rem;
   text-transform: uppercase;
-}
-#root .container-fluid .home-tiles .tour-image {
-  margin-top: 30px;
+  padding: 4px 14px;
+  margin: 0;
 }
 #root .container-fluid .home-tiles .tour-image .ant-card {
   box-shadow: 0px 0px 14px 3px #0000000d;
@@ -153,10 +172,17 @@ a.btn-right, button.btn-right {
   padding: 0;
   overflow: hidden;
 }
-#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body img {
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body .image-container {
+  overflow: hidden;
+}
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body .image-container img {
+  transition: 0.5s;
   width: auto;
   max-height: 250px;
   min-height: 250px;
+}
+#root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body .image-container:hover img {
+  transform: scale(1.2);
 }
 #root .container-fluid .home-tiles .tour-image .ant-card .ant-card-body .anticon {
   position: relative;

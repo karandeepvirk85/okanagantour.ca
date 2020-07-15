@@ -6,6 +6,7 @@ import './App.css'
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Components/home.component.js'
 import Wine from './Components/wine.component.js'
+import Activities from './Components/activities.component.js'
 import About from './Components/about.component.js'
 import Contact from './Components/contact.component.js'
 import Single from './Components/single.component.js'
@@ -17,7 +18,8 @@ function App(){
 			<Router>
 				<Header/>
 				<Route path ="/" exact component={Home} />                                 
-				<Route path ="/wine" component={Wine} />     
+				<Route path ="/wine" component={Wine} /> 
+				<Route path ="/activities" component={Activities} />    
 				<Route path ="/cart" component={Cart} />
 				<Route path = "/checkout" component={Checkout} />
 				<Route path ="/about" component={About} />              

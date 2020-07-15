@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {withRouter} from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
 import {Container, Row, Col} from 'react-bootstrap';
 import Cards from 'react-credit-cards';
-import {Input} from 'antd';
+import {Input, Alert} from 'antd';
+import {LeftOutlined} from '@ant-design/icons'
 import 'react-credit-cards/es/styles-compiled.css';
-import {priceFormat} from '../Common/utiliy.js';
-
+import {priceFormat, getCartTotal} from '../Common/utiliy.js';
 
 class PaymentForm extends Component {
     constructor(props){
@@ -17,7 +17,7 @@ class PaymentForm extends Component {
             focus: '',
             name: '',
             number: '',
-            pay: priceFormat(localStorage.getItem('cart_total'),false) 
+            pay: getCartTotal() 
         };
     }
 
@@ -29,8 +29,34 @@ class PaymentForm extends Component {
     handleInputFocus = (e) => {
         this.setState({ focus: e.target.name });
     }
-    render() {
-        return (
+    render(){
+        if(this.state.pay == 0){
+            return(
+                <Container className="checkout">
+                    <Row>
+                        <Col>
+                            <h1>CHECKOUT</h1>
+                            <Alert
+                                message="Informational Notes"
+                                description="Please add some items in the cart before checkout"
+                                type="info"
+                                showIcon
+                            />
+                        </Col>
+                    </Row>
+                    <br/>
+                    <Row>
+                        <Col md={6}>
+                            <Link to = "/wine" class="btn-block btn btn-left btn-main"><LeftOutlined /> Wine Tours</Link>
+                        </Col>
+                        <Col md={6}>
+                            <Link to = "/activities" class="btn-block btn btn-left btn-main"><LeftOutlined /> Activity Tours</Link>
+                        </Col>
+                    </Row>
+                </Container>
+            )
+        }else{
+        return(
             <Container className="checkout">
                 <h1>CHECKOUT</h1>
                 <h2></h2>
@@ -46,7 +72,7 @@ class PaymentForm extends Component {
                             />
                             <br/>
                             <form>
-                                <h2><span>Pay </span>{priceFormat(localStorage.getItem('cart_total'),true)} <span>To Checkout</span></h2>
+                                <h2><span>Pay </span>{priceFormat(this.state.pay,true)} <span>To Checkout</span></h2>
                                 <Row> 
                                     <Col xs={12} md={6}>
                                         <p>
@@ -105,7 +131,7 @@ class PaymentForm extends Component {
                                     </Col>
                                     <Col xs={12} md={12}>
                                         <p>
-                                            <button type="submit" className="btn-main btn btn-warning btn-block"> Click to Pay ({priceFormat(localStorage.getItem('cart_total'),true)})</button>
+                                            <button type="submit" className="btn-main btn btn-warning btn-block"> Click to Pay ({priceFormat(this.state.pay,true)})</button>
                                         </p>
                                     </Col>
                                 </Row>
@@ -115,6 +141,7 @@ class PaymentForm extends Component {
                 </div>
             </Container>
         );
+        }
     }
 }
 export default withRouter(PaymentForm);

@@ -7,8 +7,10 @@ export default class Home extends Component{
         return (
             <>
                 <Slider/>
-                <Type name="Activities" category="19" count="4"></Type>
-                <Type name="Wine" category="18" count="4"></Type>
+                <div className = "home-container">
+                    <Type name="Activities" category="19" count="4"></Type>
+                    <Type name="Wine" category="18" count="4"></Type>
+                </div>
             </>
         )
     }

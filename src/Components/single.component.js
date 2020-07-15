@@ -15,7 +15,7 @@ export default class Single extends Component{
     
     componentDidMount(){
         const {match:{params}} = this.props;
-        var apiEndPost = 'http://localhost/oktours/api/wp-json/wp/v2/posts?slug='+params.slug;
+        var apiEndPost = 'http://okanagantour.ca/api/wp-json/wp/v2/posts?slug='+params.slug;
         axios.get(apiEndPost).then(response => {
             this.setState({apiLoading:false, objData:response.data});
         })

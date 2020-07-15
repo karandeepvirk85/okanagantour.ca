@@ -1,13 +1,20 @@
 import React from "react";
 import {Card, Collapse} from 'antd';
-import {Container, Row, Col, Carousel} from 'react-bootstrap';
+import {Row, Col, Carousel} from 'react-bootstrap';
 import Spinner from '../Components/spinner.component.js';
 import {Link} from 'react-router-dom';
 import CartForm from '../Components/cartform.component.js';
 import {InfoCircleOutlined} from '@ant-design/icons';
 import Information from '../Components/information.component.js';
 
+/** 
+ *  Utility Class
+ *  Author: Karandeep Virk
+*/
+
 const {Panel} = Collapse;
+
+// Extra Icon On Accordians
 const genExtra = () => (
     <InfoCircleOutlined
         onClick={event => {
@@ -16,10 +23,12 @@ const genExtra = () => (
     />
 );
 
+// Get Unique String
 export const uniqueId = () =>{
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 
+// Decode HTML Data
 export const renderHTML = (strString) =>{
     return React.createElement(
         "div", 
@@ -27,9 +36,28 @@ export const renderHTML = (strString) =>{
     );
 }
 
+// Get Cart Total
+export const getCartTotal = () =>{
+    let cartTotal = 0;
+    const items = JSON.parse(localStorage.getItem('cart'));
+    if(items != null){
+        items.map((item, index) => {
+            cartTotal += parseFloat(item.total_price);
+        });
+    }
+    return cartTotal;
+}
+
+// Get Cart 
+export const getCart = () =>{
+    const strCart = localStorage.getItem('cart');
+    return strCart;
+}
+
+// Format Price
 export const priceFormat = (strPrice, display=false) =>{
     let floatPrice = parseFloat(strPrice);
-    if(display == true){
+    if(display === true){
         floatPrice = '$'+floatPrice.toFixed(2);
     }
     else{
@@ -38,27 +66,31 @@ export const priceFormat = (strPrice, display=false) =>{
     return floatPrice;
 }
 
+// Return Bootstrap Columns
 export const returnFourStacks  = (item, index) => {
     return(
-            <Col className="tour-image" sm={12} md={6} lg={4} xl={3} key={index}>
-                <Card title={renderHTML(item.title.rendered)} bordered={false}>
-                {typeof item.acf.image_1 != "undefined" && item.acf.image_1 != null && <img src={item.acf.image_1.url} />}
-                    <div className="info-tab">
-                        <Information
-                            location  = {item.acf.location}
-                            address   = {item.acf.address}
-                            hours     = {item.acf.hours}
-                            phone     = {item.acf.phone}
-                            email     = {item.acf.email}
-                            website   = {item.acf.website}
-                        />
-                    <Link to={"tour/"+item.slug} className="btn-main btn btn-warning btn-block">Book Tour</Link>
-                    </div>
-                </Card>
-            </Col>
+        <Col className="tour-image" sm={12} md={6} lg={4} xl={3} key={index}>
+            <Card title={renderHTML(item.title.rendered)} bordered={false}>
+            <div className="image-container">
+                {typeof item.acf.image_1 != "undefined" && item.acf.image_1 != null && <img alt="Tour" src={item.acf.image_1.url} />}
+            </div>
+                <div className="info-tab">
+                    <Information
+                        location  = {item.acf.location}
+                        address   = {item.acf.address}
+                        hours     = {item.acf.hours}
+                        phone     = {item.acf.phone}
+                        email     = {item.acf.email}
+                        website   = {item.acf.website}
+                    />
+                <Link to={"tour/"+item.slug} className="btn-book btn btn-warning btn-block">Book Tour</Link>
+                </div>
+            </Card>
+        </Col>
     )
 }
 
+// Spinner
 export const getSpinner = () =>{
     return (
         <Row>
@@ -69,8 +101,8 @@ export const getSpinner = () =>{
     )
 }
  
+// Single View
 export const returnSingleView = (item) =>{
-
     return (
         <Row>
             <Col xs={12} sm={12} md={12}>
@@ -146,4 +178,3 @@ export const returnSingleView = (item) =>{
         </Row>
     )
 }
- 

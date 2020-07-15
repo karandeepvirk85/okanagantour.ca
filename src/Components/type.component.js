@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Row} from 'react-bootstrap';
 import {returnFourStacks, getSpinner} from "../Common/utiliy.js";
-
+import {Link} from 'react-router-dom';
 // All Posts
 export default class Type extends Component{
     // Set States , Run defaults If any
@@ -34,7 +34,10 @@ export default class Type extends Component{
 
         return(
             <div className="home-tiles">
-                <h1>{this.props.name} Tours</h1>
+                <div className="tour-title-bar">
+                    <h1>{this.props.name} Tours</h1>
+                    <Link to = {"/"+this.props.name.toLowerCase()} className="btn btn-main">View All {this.props.name} Tours</Link>
+                </div>
                 <Row>{dataList}</Row>
             </div>
         );
