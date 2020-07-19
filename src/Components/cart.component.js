@@ -63,7 +63,7 @@ export default class Cart extends Component{
                         <Link to = "/wine" class="btn-block btn btn-left btn-main"><LeftOutlined /> Wine Tours</Link>
                     </Col>
                     <Col md={4}>
-                        <Link to = "/activity" class="btn-block btn btn-left btn-main"><LeftOutlined /> Activity Tours</Link>
+                        <Link to = "/activities" class="btn-block btn btn-left btn-main"><LeftOutlined /> Activity Tours</Link>
                     </Col>
                     <Col md={4}>
                         <Link to = "/checkout" class="btn-block btn btn-right btn-main">Proceed To Checkout <RightOutlined /></Link>

@@ -67,9 +67,9 @@ export const priceFormat = (strPrice, display=false) =>{
 }
 
 // Return Bootstrap Columns
-export const returnFourStacks  = (item, index) => {
+export const returnStacks  = (item, index, stacks) => {
     return(
-        <Col className="tour-image" sm={12} md={6} lg={4} xl={3} key={index}>
+        <Col className="tour-image" sm={12} md={6} lg={stacks} key={index}>
             <Card title={renderHTML(item.title.rendered)} bordered={false}>
             <div className="image-container">
                 {typeof item.acf.image_1 != "undefined" && item.acf.image_1 != null && <img alt="Tour" src={item.acf.image_1.url} />}
@@ -86,6 +86,19 @@ export const returnFourStacks  = (item, index) => {
                 <Link to={"tour/"+item.slug} className="btn-book btn btn-warning btn-block">Book Tour</Link>
                 </div>
             </Card>
+        </Col>
+    )
+}
+
+// Return Bootstrap Columns
+export const cartOverview  = (item, index) => {
+    console.log(item);
+    return(
+        <Col className="cart-overview" sm={12} md={12}  key={index}>
+            <div className="cart-inner">
+                <p>{item.title} X {item.total_member}</p> 
+                <p>{item.price_string}</p>
+            </div>
         </Col>
     )
 }

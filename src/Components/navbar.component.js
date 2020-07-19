@@ -2,8 +2,8 @@ import React,{Component} from 'react';
 import{Link} from 'react-router-dom';
 import {Navbar, Form , Button, Nav, NavDropdown, FormControl} from 'react-bootstrap';
 import logo from '../logo.png'
-import {ShoppingCartOutlined, CreditCardOutlined, PhoneOutlined} from '@ant-design/icons';
-export default class Header extends Component{
+import {ShoppingCartOutlined, CreditCardOutlined, PhoneOutlined, LoginOutlined, UserAddOutlined} from '@ant-design/icons';
+export default class Navigation extends Component{
     render(){
         return(
             <Navbar expand="sm">
@@ -12,16 +12,17 @@ export default class Header extends Component{
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
                             <Link className="nav-link" to="/">              Home                </Link>
-                            <Link className="nav-link" to="/wine">          Wine                </Link>
-                            <Link className="nav-link" to="/activities">    Activities          </Link>
-                            <Link className="nav-link" to="/about">         About               </Link>
-                            <Link className="nav-link" to="/contact">       Contact             </Link>
+                            <NavDropdown title="Tours" id="basic-nav-dropdown">
+                                <Link className="nav-link" to="/activities">    Activity Tours          </Link>
+                                <Link className="nav-link" to="/wine">          Wine Tours              </Link>
+                            </NavDropdown>
                             <Link className="nav-link" to="/cart">          <ShoppingCartOutlined/> Cart </Link>
-                            <Link className="nav-link" to="/checkout">      Checkout</Link>
+                            <Link className="nav-link" to="/checkout">      <CreditCardOutlined />  Checkout </Link>
+                            <Link className="nav-link" to="/login">         <LoginOutlined />       Login </Link>
+                            <Link className="nav-link" to="/register">      <UserAddOutlined />     Register  </Link>
                         </Nav>
                     </Navbar.Collapse>
             </Navbar>
         )
     }
-
 }

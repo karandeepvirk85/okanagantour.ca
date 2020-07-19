@@ -4,7 +4,7 @@ export default class Spinner extends Component{
     render(){
         return(
             <Loader
-                type="Audio"
+                type="Oval"
                 color="#00BFFF"
                 height={100}
                 width={100}

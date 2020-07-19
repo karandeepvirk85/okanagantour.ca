@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Damion&family=Baloo+Da+2&family=Noto+Sans+JP&display=swap');
 
 $background-color:#f9f9f9;
 $primary-color:#21bdd9;
 $primary-font:'Fredoka One', cursive;
-$secondary-font:'Noto Sans JP', sans-serif;
+$secondary-font:'Baloo Da 2', cursive;
 body{
     background-color: $background-color;
     font-family: $secondary-font;
 }
 a, button{ 
     color: #305a6f;
-    font-family: cursive;
+    font-family: $secondary-font;
     text-decoration: none;
     background-color: transparent;
     &.btn-main{
@@ -42,8 +42,15 @@ a, button{
     }
     &.btn-book{
         color: #192f3a;
-        background-color: #7dd4ff;
+        background-color: #ffeb0059;
         border: 1px solid #192f3a;
+    }
+    &.btn-login{
+        height: auto;
+        padding: 0;
+        span{
+            padding: 0.5rem;
+        }
     }
 }
 #root{
@@ -54,7 +61,7 @@ a, button{
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: "Noto Sans JP", sans-serif;
+            font-family: $secondary-font;
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: bold;
@@ -62,7 +69,7 @@ a, button{
             svg{
                 color: $primary-color;
                 margin-right: 2px;
-                font-size: 1.5rem;
+                font-size: 1rem;
             }
             &.navbar-brand{
                 img{
@@ -151,6 +158,54 @@ a, button{
                 margin-top: 30px;
             }
         }
+        .home-left-container{
+            background: #305a6f;
+            padding: 0;
+            margin: 0;
+            margin-top: 10px;
+            .cart-container{
+                h1{
+                    font-family: "Fredoka One", cursive;
+                    color: #baecff;
+                    letter-spacing: 2px;
+                    font-size: 3rem;
+                    padding: 4px 14px;
+                    margin: 0;
+                    border-bottom: 1px dashed #6da0b9;
+                }
+                .cart-total{
+                    padding:0 1rem;
+                    display: flex;
+                    justify-content: space-between;
+                    color: #305a6f;
+                    font-size: 1.5rem;
+                    p{
+                        color: #baecff;
+                        font-family: $primary-font;
+                        margin: 6px 0;
+                    }
+                }
+                .cart-buttons{
+                    padding:0 1rem;
+                    a{
+                        margin-top: 2px;
+                    }
+                }
+                .cart-overview{
+                    padding:0 1rem;
+                    .cart-inner{
+                        display: flex;
+                        justify-content: space-between;
+                        p{
+                            margin: 4px 0;
+                            font-size: 0.8rem;
+                            color:#95d9fb;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
         .home-tiles{
             .tour-title-bar{
                 background: #f3f3f3;
@@ -162,7 +217,7 @@ a, button{
                 padding-right: 10px;
                 h1{
                     font-family: "Fredoka One", cursive;
-                    color: #828282;
+                    color:#305a6f;
                     letter-spacing: 2px;
                     font-size: 3rem;
                     text-transform: uppercase;
@@ -218,7 +273,7 @@ a, button{
                                 align-items: baseline;
                                 justify-content: center;
                                 p{
-                                    font-family: "Fredoka One", cursive;
+                                    font-family: $secondary-font;
                                     margin: 1px 0;
                                     font-weight: 300;
                                     font-size: 0.9rem;
@@ -242,6 +297,52 @@ a, button{
                     span{
                         font-family: $secondary-font;
                         font-size: 1.5rem;
+                    }
+                }
+            }
+            &.login-page{
+                .ant-form{
+                    background: white;
+                    padding: 2rem;
+                    .ant-form-item{
+                        margin-bottom: 10px;
+                    }
+                    .ant-row{
+                        .ant-form-item-label{
+                            width: 100%;
+                            text-align: left;
+                            label{
+                                height: auto;
+                                font-size: 1.2rem;
+                                font-family: $secondary-font;
+                            }
+                        }
+                    }
+                    .ant-input{
+                        height: 36px;
+                    }
+                }
+            }
+            &.register-page{
+                .ant-form{
+                    background: white;
+                    padding: 2rem;
+                    .ant-form-item{
+                        margin-bottom: 10px;
+                    }
+                    .ant-row{
+                        .ant-form-item-label{
+                            width: 100%;
+                            text-align: left;
+                            label{
+                                height: auto;
+                                font-size: 1.2rem;
+                                font-family: $secondary-font;
+                            }
+                        }
+                    }
+                    .ant-input{
+                        height: 36px;
                     }
                 }
             }
@@ -279,4 +380,29 @@ a, button{
 .anticon-delete{
     color: #ff5e00;
     font-size: 1.1rem;
+}
+.footer-container{
+    margin-top: 40px;
+    padding: 2rem;
+    .footer-logo{
+        text-align: center;
+        img{
+            width: 16rem;
+            text-align: center;
+        }
+        p{
+            text-align: center;
+            margin: 0;
+        }
+    }
+    h1{
+        margin-bottom: 30px;
+        font-family: $primary-font;
+        color: #305a6f;
+    }
+    a{
+        font-family: $secondary-font;
+        font-weight: 300;
+        font-size: 1rem;
+    }
 }

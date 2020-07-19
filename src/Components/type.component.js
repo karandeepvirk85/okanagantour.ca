@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Row} from 'react-bootstrap';
-import {returnFourStacks, getSpinner} from "../Common/utiliy.js";
+import {returnStacks, getSpinner} from "../Common/utiliy.js";
 import {Link} from 'react-router-dom';
 // All Posts
 export default class Type extends Component{
@@ -10,14 +10,15 @@ export default class Type extends Component{
         super(props);
         this.state = {
             ApiLoading:true,
-            objData:[]
+            objData:[],
+            stacks: this.props.stacks,
+            category: this.props.category,
+            count: this.props.count
         }
     }
     // Default Fb Function Called 
     async componentDidMount(){
-        const apiParameters = this.props.category;
-        const numberPosts   = this.props.count;
-        const apiEnd        = "http://okanagantour.ca/api/wp-json/wp/v2/posts?categories="+apiParameters+"&per_page="+numberPosts;
+        const apiEnd = "https://okanagantour.ca/api/wp-json/wp/v2/posts?categories="+this.state.category+"&per_page="+this.state.count;
         axios.get(apiEnd)
         .then(response => {
             this.setState({ApiLoading:false, objData:response.data})
@@ -28,8 +29,8 @@ export default class Type extends Component{
     getPosts(){
         const dataList = this.state.objData.map((item, index) => {
             return(
-               returnFourStacks(item,index)
-            );  
+                returnStacks(item,index,this.state.stacks)
+            );
         });
 
         return(
