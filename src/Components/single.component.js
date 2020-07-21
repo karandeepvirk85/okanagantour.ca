@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Container, Row} from 'react-bootstrap';
 import {returnSingleView, getSpinner} from "../Common/utiliy.js";
 
 // All Posts
@@ -12,6 +11,15 @@ export default class Single extends Component{
             objData:[]
         }
     }
+
+    componentDidUpdate = (prevProps) => {
+        if(this.props.match.params.slug !== prevProps.match.params.slug){
+            var apiEndPost = 'https://okanagantour.ca/api/wp-json/wp/v2/posts?slug='+this.props.match.params.slug;
+            axios.get(apiEndPost).then(response => {
+                this.setState({apiLoading:false, objData:response.data});
+            })
+        };
+    };
     
     componentDidMount(){
         const {match:{params}} = this.props;
@@ -27,9 +35,11 @@ export default class Single extends Component{
         });
 
         return(
-            <Container className="single-view">
-                {dataList}
-            </Container>
+            <div className="container-fluid single-fluid">
+                <div className="single-view">
+                    {dataList}
+                </div>
+            </div>
         );
     }
     
@@ -42,7 +52,7 @@ export default class Single extends Component{
         }
         return this.getPosts();
     }
-
+    
     render(){
         return this.init();
     }

@@ -17,11 +17,14 @@ export default class Home extends Component{
     // Get Cart Overview
     getCartOverView = () =>{
         let objCart = JSON.parse(this.state.cart);
-        const dataList = objCart.map((item, index)=>{
-            return (
-                cartOverview(item,index)
-            )
-        });
+        var dataList = '';
+        if(objCart != null){
+            dataList = objCart.map((item, index)=>{
+                return (
+                    cartOverview(item,index)
+                )
+            });
+        }
         return dataList;
     }
     
@@ -30,9 +33,8 @@ export default class Home extends Component{
         return (
             <>
                 <Slider/>
-                <div className = "home-container">
+                <div className = "container-fluid">
                     <Row>
-
                         <Col md={3} className="home-left-container">
                             <div className="cart-container">
                                 <h1>Order</h1>
@@ -42,8 +44,8 @@ export default class Home extends Component{
                                     <p>{priceFormat(getCartTotal(),true)}</p>
                                 </div>
                                 <div class="cart-buttons">
-                                <Link to = "/cart" class="btn btn-right btn-main">Cart <RightOutlined /></Link>
-                                <Link to = "/checkout" class="btn btn-right btn-main">Checkout <RightOutlined /></Link>
+                                <Link to = "/cart" class="btn btn-left btn-main">Cart <RightOutlined /></Link>
+                                <Link to = "/checkout" class="btn btn-left btn-main">Checkout <RightOutlined /></Link>
                                 </div>
                             </div>
                         </Col>

@@ -5,7 +5,7 @@ export default class Wine extends Component{
     render(){
         // Stacks 3 means 4 columns
         return(
-            <div className = "type-container"> 
+            <div className = "container-fluid type-fluid"> 
                 <Type name="Activities" category="19" count="100" stacks="3"></Type>
             </div>
         )

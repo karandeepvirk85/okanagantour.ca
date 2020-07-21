@@ -4,59 +4,75 @@ body {
   font-family: "Baloo Da 2", cursive;
 }
 
-a, button {
-  color: #305a6f;
+#root a, #root button {
+  color: #1e3946;
   font-family: "Baloo Da 2", cursive;
   text-decoration: none;
   background-color: transparent;
 }
-a.btn-main, button.btn-main {
-  background: #305a6f;
-  color: #dbecff;
-  font-size: 1rem;
+#root a.btn-main, #root button.btn-main {
+  background: #1e3946;
+  color: #f3f3f3;
   font-family: inherit;
-  padding: 0.8rem;
-  border: 1px solid #192f3a;
   text-transform: uppercase;
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
 }
-a.btn-main:hover, button.btn-main:hover {
+#root a.btn-main:hover, #root button.btn-main:hover {
+  background: #1e3946;
+  color: #f3f3f3;
   opacity: 0.8;
-  background: #305a6f;
-  border: 1px solid #192f3a;
-  color: white;
 }
-a.btn-left, button.btn-left {
+#root a.btn-left, #root button.btn-left {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-a.btn-right, button.btn-right {
+#root a.btn-right, #root button.btn-right {
   display: flex;
-  background: #7dd4ff;
-  color: #305a6f;
   justify-content: flex-end;
   align-items: center;
 }
-a.btn-book, button.btn-book {
-  color: #192f3a;
-  background-color: #ffeb0059;
-  border: 1px solid #192f3a;
+#root a.btn-book, #root button.btn-book {
+  color: #1e3946;
+  background-color: transparent;
+  border: 2px solid #1e3946;
+  font-family: "Fredoka One", cursive;
+  font-size: 1.3rem;
+  padding: 0.7rem 1rem;
 }
-a.btn-login, button.btn-login {
+#root a.btn-book:hover, #root button.btn-book:hover {
+  background-color: #1e3946;
+  color: #baecff;
+}
+#root a.btn-login, #root button.btn-login {
   height: auto;
   padding: 0;
 }
-a.btn-login span, button.btn-login span {
+#root a.btn-login span, #root button.btn-login span {
   padding: 0.5rem;
 }
-
-#root {
+#root .its-spinner {
+  margin: 40px auto;
+}
+#root .container-fluid.top-fluid {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
   background-color: #f9f9f9;
 }
-#root .navbar {
-  padding: 0;
+#root .container-fluid.top-fluid .navbar {
+  position: absolute;
+  z-index: 9;
+  background: #1e3946db;
+  width: 100%;
+  padding: 0 1rem;
+  min-height: 90px;
 }
-#root .navbar a {
+#root .container-fluid.top-fluid .navbar .dropdown .dropdown-menu a {
+  color: #1e3946;
+}
+#root .container-fluid.top-fluid .navbar a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,38 +81,48 @@ a.btn-login span, button.btn-login span {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1rem;
+  color: #baecff;
 }
-#root .navbar a svg {
-  color: #21bdd9;
+#root .container-fluid.top-fluid .navbar a svg {
+  color: #baecff;
   margin-right: 2px;
   font-size: 1rem;
 }
-#root .navbar a.navbar-brand img {
-  width: 200px;
+#root .container-fluid.top-fluid .navbar a.navbar-brand img {
+  width: 325px;
 }
-#root .carousel .carousel-inner {
-  min-height: 600px;
-  max-height: 600px;
+#root .container-fluid.slider-fluid {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
 }
-#root .single-view {
+#root .container-fluid.slider-fluid .carousel .carousel-inner {
+  min-height: 100vh;
+  max-height: 100vh;
+}
+#root .container-fluid.single-fluid {
+  width: 100%;
+  padding-top: 100px;
+}
+#root .container-fluid.single-fluid .single-view {
   padding: 0;
-  background-color: #ffffff;
+  background-color: #f3f3f3;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #f3f3f3;
 }
-#root .single-view .ant-collapse-content {
+#root .container-fluid.single-fluid .single-view .ant-collapse-content {
   white-space: break-spaces;
 }
-#root .single-view .carousel-inner {
+#root .container-fluid.single-fluid .single-view .carousel-inner {
   min-height: unset;
 }
-#root .single-view .tour-content {
+#root .container-fluid.single-fluid .single-view .tour-content {
   padding: 20px 1rem 30px 1rem;
   font-size: 1rem;
   white-space: break-spaces;
   text-align: justify;
 }
-#root .single-view h1.post-title {
+#root .container-fluid.single-fluid .single-view h1.post-title {
   padding: 20px 1.5rem;
   font-family: "Fredoka One", cursive;
   font-size: 2rem;
@@ -106,48 +132,50 @@ a.btn-login span, button.btn-login span {
   text-transform: uppercase;
   background: #f9f9f9;
 }
-#root .single-view .cart-area {
+#root .container-fluid.single-fluid .single-view .cart-area {
   padding: 10px 1.5rem;
 }
-#root .single-view .cart-area p {
+#root .container-fluid.single-fluid .single-view .cart-area p {
   font-family: "Baloo Da 2", cursive;
   text-align: left;
 }
-#root .single-view .cart-area p form .ant-picker {
+#root .container-fluid.single-fluid .single-view .cart-area p form .ant-picker {
   width: 100%;
 }
-#root .single-view .cart-area p form .ant-input-number {
+#root .container-fluid.single-fluid .single-view .cart-area p form .ant-input-number {
   width: 75%;
 }
-#root .single-view .cart-area p form p {
+#root .container-fluid.single-fluid .single-view .cart-area p form p {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: gray;
   font-size: 15px;
 }
-#root .single-view .cart-area p form .ant-select {
+#root .container-fluid.single-fluid .single-view .cart-area p form .ant-select {
   width: 100%;
 }
-#root .single-view .cart-area p.price {
-  color: #21bdd9;
+#root .container-fluid.single-fluid .single-view .cart-area p.price {
+  color: #baecff;
   font-size: 1.5rem;
 }
-#root .single-view .cart-area button {
+#root .container-fluid.single-fluid .single-view .cart-area button {
   width: 100%;
   margin-top: 4px;
 }
-#root .container-fluid .type-container .home-tiles .tour-title-bar {
+#root .container-fluid.type-fluid {
+  padding-top: 90px;
+}
+#root .container-fluid.type-fluid .home-tiles .tour-title-bar {
   display: none;
 }
-#root .container-fluid .type-container .tour-image {
+#root .container-fluid.type-fluid .tour-image {
   margin-top: 30px;
 }
 #root .container-fluid .home-left-container {
-  background: #305a6f;
+  background: #1e3946;
   padding: 0;
   margin: 0;
-  margin-top: 10px;
 }
 #root .container-fluid .home-left-container .cart-container h1 {
   font-family: "Fredoka One", cursive;
@@ -162,11 +190,11 @@ a.btn-login span, button.btn-login span {
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
-  color: #305a6f;
+  color: #1e3946;
   font-size: 1.5rem;
 }
 #root .container-fluid .home-left-container .cart-container .cart-total p {
-  color: #baecff;
+  color: #f3f3f3;
   font-family: "Fredoka One", cursive;
   margin: 6px 0;
 }
@@ -175,6 +203,7 @@ a.btn-login span, button.btn-login span {
 }
 #root .container-fluid .home-left-container .cart-container .cart-buttons a {
   margin-top: 2px;
+  padding: 0;
 }
 #root .container-fluid .home-left-container .cart-container .cart-overview {
   padding: 0 1rem;
@@ -184,10 +213,9 @@ a.btn-login span, button.btn-login span {
   justify-content: space-between;
 }
 #root .container-fluid .home-left-container .cart-container .cart-overview .cart-inner p {
-  margin: 4px 0;
-  font-size: 0.8rem;
-  color: #95d9fb;
-  font-weight: 600;
+  margin: 10px 0;
+  font-size: 0.95rem;
+  color: #f3f3f3;
 }
 #root .container-fluid .home-tiles .tour-title-bar {
   background: #f3f3f3;
@@ -200,7 +228,7 @@ a.btn-login span, button.btn-login span {
 }
 #root .container-fluid .home-tiles .tour-title-bar h1 {
   font-family: "Fredoka One", cursive;
-  color: #305a6f;
+  color: #1e3946;
   letter-spacing: 2px;
   font-size: 3rem;
   text-transform: uppercase;
@@ -213,7 +241,7 @@ a.btn-login span, button.btn-login span {
 #root .container-fluid .home-tiles .tour-image .ant-card .ant-card-head {
   background-color: #7dd4ff;
   letter-spacing: 0px;
-  border-bottom: 6px solid #305a6f;
+  border-bottom: 6px solid #1e3946;
 }
 #root .container-fluid .home-tiles .tour-image .ant-card .ant-card-head .ant-card-head-title {
   color: black;
@@ -264,106 +292,126 @@ a.btn-login span, button.btn-login span {
   color: #6f6f6f;
   text-shadow: 1px 1px 1px #f9f9f9;
 }
-#root .container-fluid .container.cart-page h2 {
+#root .container.cart-page {
+  padding-top: 120px;
+}
+#root .container.cart-page h2 {
   font-size: 3rem;
   color: gray;
   font-family: "Fredoka One", cursive;
 }
-#root .container-fluid .container.cart-page h2 span {
+#root .container.cart-page h2 span {
   font-family: "Baloo Da 2", cursive;
   font-size: 1.5rem;
 }
-#root .container-fluid .container.login-page .ant-form {
+#root .container.login-page {
+  padding-top: 120px;
+}
+#root .container.login-page .ant-form {
   background: white;
   padding: 2rem;
 }
-#root .container-fluid .container.login-page .ant-form .ant-form-item {
+#root .container.login-page .ant-form .ant-form-item {
   margin-bottom: 10px;
 }
-#root .container-fluid .container.login-page .ant-form .ant-row .ant-form-item-label {
+#root .container.login-page .ant-form .ant-row .ant-form-item-label {
   width: 100%;
   text-align: left;
 }
-#root .container-fluid .container.login-page .ant-form .ant-row .ant-form-item-label label {
+#root .container.login-page .ant-form .ant-row .ant-form-item-label label {
   height: auto;
   font-size: 1.2rem;
   font-family: "Baloo Da 2", cursive;
 }
-#root .container-fluid .container.login-page .ant-form .ant-input {
+#root .container.login-page .ant-form .ant-input {
   height: 36px;
 }
-#root .container-fluid .container.register-page .ant-form {
+#root .container.register-page {
+  padding-top: 120px;
+}
+#root .container.register-page .ant-form {
   background: white;
   padding: 2rem;
 }
-#root .container-fluid .container.register-page .ant-form .ant-form-item {
+#root .container.register-page .ant-form .ant-form-item {
   margin-bottom: 10px;
 }
-#root .container-fluid .container.register-page .ant-form .ant-row .ant-form-item-label {
+#root .container.register-page .ant-form .ant-row .ant-form-item-label {
   width: 100%;
   text-align: left;
 }
-#root .container-fluid .container.register-page .ant-form .ant-row .ant-form-item-label label {
+#root .container.register-page .ant-form .ant-row .ant-form-item-label label {
   height: auto;
   font-size: 1.2rem;
   font-family: "Baloo Da 2", cursive;
 }
-#root .container-fluid .container.register-page .ant-form .ant-input {
+#root .container.register-page .ant-form .ant-input {
   height: 36px;
 }
-#root .container-fluid .container.checkout h1 {
+#root .container.checkout {
+  padding-top: 120px;
+}
+#root .container.checkout h1 {
   margin: 20px;
 }
-#root .container-fluid .container.checkout #PaymentForm {
+#root .container.checkout #PaymentForm {
   padding: 3rem;
   background: white;
   box-shadow: 0px 0px 7px -2px #0000001a;
 }
-#root .container-fluid .container.checkout #PaymentForm h2 {
+#root .container.checkout #PaymentForm h2 {
   font-size: 2.5rem;
   text-align: center;
   color: #999999;
   font-family: "Fredoka One", cursive;
 }
-#root .container-fluid .container.checkout #PaymentForm h2 span {
+#root .container.checkout #PaymentForm h2 span {
   font-family: "Baloo Da 2", cursive;
   font-size: 1.5rem;
 }
-#root .container-fluid .container.checkout #PaymentForm .ant-input {
+#root .container.checkout #PaymentForm .ant-input {
   height: 50px;
   border: 1px solid #999999;
   border-radius: 4px;
 }
-#root .its-spinner {
-  margin: 40px auto;
+#root .my-credits p {
+  background: #1e3946;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  color: #80b9d4;
 }
-
-.anticon-delete {
-  color: #ff5e00;
-  font-size: 1.1rem;
+#root .my-credits p a {
+  color: #bae7eb;
 }
-
-.footer-container {
+#root .container-fluid.footer-fluid {
+  background-image: url("images/map.png");
+}
+#root .container-fluid.footer-fluid .footer-container {
   margin-top: 40px;
-  padding: 2rem;
+  background-color: #f9f9f9b8;
+  padding: 40px 0rem;
 }
-.footer-container .footer-logo {
+#root .container-fluid.footer-fluid .footer-container .row {
+  margin: 0;
+}
+#root .container-fluid.footer-fluid .footer-container .footer-logo {
   text-align: center;
 }
-.footer-container .footer-logo img {
+#root .container-fluid.footer-fluid .footer-container .footer-logo img {
   width: 16rem;
   text-align: center;
 }
-.footer-container .footer-logo p {
+#root .container-fluid.footer-fluid .footer-container .footer-logo p {
   text-align: center;
   margin: 0;
 }
-.footer-container h1 {
+#root .container-fluid.footer-fluid .footer-container h1 {
   margin-bottom: 30px;
   font-family: "Fredoka One", cursive;
-  color: #305a6f;
+  color: #1e3946;
 }
-.footer-container a {
+#root .container-fluid.footer-fluid .footer-container a {
   font-family: "Baloo Da 2", cursive;
   font-weight: 300;
   font-size: 1rem;

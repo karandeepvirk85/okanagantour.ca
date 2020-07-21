@@ -1,154 +1,214 @@
+// Font Imports
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Damion&family=Baloo+Da+2&family=Noto+Sans+JP&display=swap');
-
+// Background color
 $background-color:#f9f9f9;
-$primary-color:#21bdd9;
+// Light Colors
+$light-color:#f3f3f3;
+// Primary Color
+$primary-color:#baecff;
+// Secondary Color
+$secondary-color:#1e3946;
+// Primary Font
 $primary-font:'Fredoka One', cursive;
+// Secondary Font
 $secondary-font:'Baloo Da 2', cursive;
+// Body
 body{
     background-color: $background-color;
     font-family: $secondary-font;
 }
-a, button{ 
-    color: #305a6f;
-    font-family: $secondary-font;
-    text-decoration: none;
-    background-color: transparent;
-    &.btn-main{
-        background: #305a6f;
-        color: #dbecff;
-        font-size: 1rem;
-        font-family: inherit;
-        padding: 0.8rem;
-        border: 1px solid #192f3a;
-        text-transform: uppercase;
-        &:hover{
-            opacity: 0.8;
-            background: #305a6f;
-            border: 1px solid #192f3a;
-            color:white;
-        }
-    }
-    &.btn-left{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    &.btn-right{
-        display: flex;
-        background: #7dd4ff;
-        color: #305a6f;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    &.btn-book{
-        color: #192f3a;
-        background-color: #ffeb0059;
-        border: 1px solid #192f3a;
-    }
-    &.btn-login{
-        height: auto;
-        padding: 0;
-        span{
-            padding: 0.5rem;
-        }
-    }
-}
+//Application Root
 #root{
-    background-color:$background-color;
-    .navbar{
-        padding: 0;
-        a{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: $secondary-font;
-            letter-spacing: 1px;
+    // Default Styles
+    a, button{ 
+        color:$secondary-color;
+        font-family: $secondary-font;
+        text-decoration: none;
+        background-color: transparent;
+        &.btn-main{
+            background:$secondary-color;
+            color:$light-color;
+            font-family: inherit;
             text-transform: uppercase;
-            font-weight: bold;
-            font-size: 1rem;
-            svg{
-                color: $primary-color;
-                margin-right: 2px;
-                font-size: 1rem;
-            }
-            &.navbar-brand{
-                img{
-                    width: 200px;
-                }
+            font-size: 1.3rem;
+            padding: 0.5rem 1rem;
+            &:hover{
+                background:$secondary-color;
+                color:$light-color;
+                opacity: 0.8;
             }
         }
-    }
-    .carousel{
-        .carousel-inner{
-            min-height: 600px;
-            max-height: 600px;
+        &.btn-left{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
         }
-    }
-    .single-view{
-        padding: 0;
-        background-color: #ffffff;
-        .ant-collapse-content{
-            white-space: break-spaces;
+        &.btn-right{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
         }
-        .carousel-inner{
-            min-height: unset;
-        }
-        .tour-content{
-            padding: 20px 1rem 30px 1rem;
-            font-size: 1rem;
-            white-space: break-spaces;
-            text-align: justify;
-        }
-        padding: 0;
-        background-color: #ffffff;
-        h1{
-            &.post-title{
-                padding: 20px 1.5rem;
-                font-family: $primary-font;
-                font-size: 2rem;
-                color: #333333;
-                letter-spacing: 2px;
-                margin:0;
-                text-transform: uppercase;
-                background: #f9f9f9;
+        &.btn-book{
+            color:$secondary-color;
+            background-color: transparent;
+            border: 2px solid $secondary-color;
+            font-family: $primary-font;
+            font-size: 1.3rem;
+            padding: 0.7rem 1rem;
+            &:hover{
+                 background-color: $secondary-color;
+                 color:$primary-color;
             }
+
         }
-        .cart-area{
-            padding:10px 1.5rem;
-            p{
-                form{
-                    .ant-picker{
-                        width: 100%;
-                    }
-                    .ant-input-number{
-                        width: 75%;
-                    }
-                    p{
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        color: gray;
-                        font-size: 15px;
-                    }
-                    .ant-select{
-                        width: 100%;
-                    }
-                }
-                font-family: $secondary-font;
-                &.price{
-                    color:$primary-color;
-                    font-size: 1.5rem;
-                }
-                text-align: left;
-            }
-            button{
-                width: 100%;
-                margin-top: 4px;
+        &.btn-login{
+            height: auto;
+            padding: 0;
+            span{
+                padding: 0.5rem;
             }
         }
     }
+    .its-spinner{
+        margin: 40px auto;
+    }
+
+    // Site Navbar 
     .container-fluid{
-        .type-container{
+        &.top-fluid{
+            padding-left: 0;
+            padding-right: 0;
+            width: 100%;        
+            background-color:$background-color;
+            .navbar{
+                position: absolute;
+                z-index: 9;
+                background: #1e3946db;
+                width: 100%;
+                padding: 0 1rem;
+                min-height: 90px;
+                .dropdown{
+                    .dropdown-menu{
+                        a{
+                            color:$secondary-color;
+                        }
+                    }
+                }
+                a{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: $secondary-font;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    color:$primary-color;
+                    svg{
+                        color: $primary-color;
+                        margin-right: 2px;
+                        font-size: 1rem;
+                    }
+                    &.navbar-brand{
+                        img{
+                            width: 325px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Home Slider
+    .container-fluid{
+        &.slider-fluid{
+            width: 100%;
+            padding-right:0;
+            padding-left:0;
+            .carousel{
+                .carousel-inner{
+                    min-height: 100vh;
+                    max-height: 100vh;
+                }
+            }
+        }
+    }
+
+    // Single View Pages
+    .container-fluid{
+        &.single-fluid{
+            width: 100%;
+            padding-top: 100px;
+            .single-view{
+                padding: 0;
+                background-color: $light-color;
+                .ant-collapse-content{
+                    white-space: break-spaces;
+                }
+                .carousel-inner{
+                    min-height: unset;
+                }
+                .tour-content{
+                    padding: 20px 1rem 30px 1rem;
+                    font-size: 1rem;
+                    white-space: break-spaces;
+                    text-align: justify;
+                }
+                padding: 0;
+                background-color: $light-color;
+                h1{
+                    &.post-title{
+                        padding: 20px 1.5rem;
+                        font-family: $primary-font;
+                        font-size: 2rem;
+                        color: #333333;
+                        letter-spacing: 2px;
+                        margin:0;
+                        text-transform: uppercase;
+                        background: #f9f9f9;
+                    }
+                }
+                .cart-area{
+                    padding:10px 1.5rem;
+                    p{
+                        form{
+                            .ant-picker{
+                                width: 100%;
+                            }
+                            .ant-input-number{
+                                width: 75%;
+                            }
+                            p{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                color: gray;
+                                font-size: 15px;
+                            }
+                            .ant-select{
+                                width: 100%;
+                            }
+                        }
+                        font-family: $secondary-font;
+                        &.price{
+                            color:$primary-color;
+                            font-size: 1.5rem;
+                        }
+                        text-align: left;
+                    }
+                    button{
+                        width: 100%;
+                        margin-top: 4px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Types View 
+    .container-fluid{
+        &.type-fluid{
+            padding-top: 90px;
             .home-tiles{
                 .tour-title-bar{
                     display:none;
@@ -159,10 +219,9 @@ a, button{
             }
         }
         .home-left-container{
-            background: #305a6f;
+            background: $secondary-color;
             padding: 0;
             margin: 0;
-            margin-top: 10px;
             .cart-container{
                 h1{
                     font-family: "Fredoka One", cursive;
@@ -177,10 +236,10 @@ a, button{
                     padding:0 1rem;
                     display: flex;
                     justify-content: space-between;
-                    color: #305a6f;
+                    color: $secondary-color;
                     font-size: 1.5rem;
                     p{
-                        color: #baecff;
+                        color:$light-color;
                         font-family: $primary-font;
                         margin: 6px 0;
                     }
@@ -189,6 +248,7 @@ a, button{
                     padding:0 1rem;
                     a{
                         margin-top: 2px;
+                        padding: 0;
                     }
                 }
                 .cart-overview{
@@ -197,10 +257,9 @@ a, button{
                         display: flex;
                         justify-content: space-between;
                         p{
-                            margin: 4px 0;
-                            font-size: 0.8rem;
-                            color:#95d9fb;
-                            font-weight: 600;
+                            margin: 10px 0;
+                            font-size: 0.95rem;
+                            color:$light-color;
                         }
                     }
                 }
@@ -217,7 +276,7 @@ a, button{
                 padding-right: 10px;
                 h1{
                     font-family: "Fredoka One", cursive;
-                    color:#305a6f;
+                    color:$secondary-color;
                     letter-spacing: 2px;
                     font-size: 3rem;
                     text-transform: uppercase;
@@ -231,7 +290,7 @@ a, button{
                     .ant-card-head{
                         background-color: #7dd4ff;
                         letter-spacing: 0px;
-                        border-bottom: 6px solid #305a6f;
+                        border-bottom: 6px solid $secondary-color;
                         .ant-card-head-title{
                             color:black;
                         }
@@ -287,122 +346,142 @@ a, button{
                 }
             }
         }
-        // Cart
-        .container{
-            &.cart-page{
+    } 
+    // Cart
+    .container{
+        &.cart-page{
+            padding-top: 120px;
+            h2{
+                font-size: 3rem;
+                color:gray;
+                font-family: $primary-font;
+                span{
+                    font-family: $secondary-font;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        &.login-page{
+            padding-top: 120px;
+            .ant-form{
+                background: white;
+                padding: 2rem;
+                .ant-form-item{
+                    margin-bottom: 10px;
+                }
+                .ant-row{
+                    .ant-form-item-label{
+                        width: 100%;
+                        text-align: left;
+                        label{
+                            height: auto;
+                            font-size: 1.2rem;
+                            font-family: $secondary-font;
+                        }
+                    }
+                }
+                .ant-input{
+                    height: 36px;
+                }
+            }
+        }
+        &.register-page{
+            padding-top: 120px;
+            .ant-form{
+                background: white;
+                padding: 2rem;
+                .ant-form-item{
+                    margin-bottom: 10px;
+                }
+                .ant-row{
+                    .ant-form-item-label{
+                        width: 100%;
+                        text-align: left;
+                        label{
+                            height: auto;
+                            font-size: 1.2rem;
+                            font-family: $secondary-font;
+                        }
+                    }
+                }
+                .ant-input{
+                    height: 36px;
+                }
+            }
+        }
+        &.checkout{
+            padding-top: 120px;
+            h1{
+                margin: 20px;
+            }
+            #PaymentForm{
                 h2{
-                    font-size: 3rem;
-                    color:gray;
+                    font-size: 2.5rem;
+                    text-align: center;
+                    color:#999999;
                     font-family: $primary-font;
                     span{
                         font-family: $secondary-font;
                         font-size: 1.5rem;
                     }
                 }
-            }
-            &.login-page{
-                .ant-form{
-                    background: white;
-                    padding: 2rem;
-                    .ant-form-item{
-                        margin-bottom: 10px;
-                    }
-                    .ant-row{
-                        .ant-form-item-label{
-                            width: 100%;
-                            text-align: left;
-                            label{
-                                height: auto;
-                                font-size: 1.2rem;
-                                font-family: $secondary-font;
-                            }
-                        }
-                    }
-                    .ant-input{
-                        height: 36px;
-                    }
+                .ant-input{
+                    height: 50px;
+                    border: 1px solid #999999;
+                    border-radius: 4px;
                 }
-            }
-            &.register-page{
-                .ant-form{
-                    background: white;
-                    padding: 2rem;
-                    .ant-form-item{
-                        margin-bottom: 10px;
-                    }
-                    .ant-row{
-                        .ant-form-item-label{
-                            width: 100%;
-                            text-align: left;
-                            label{
-                                height: auto;
-                                font-size: 1.2rem;
-                                font-family: $secondary-font;
-                            }
-                        }
-                    }
-                    .ant-input{
-                        height: 36px;
-                    }
-                }
-            }
-            &.checkout{
-                h1{
-                    margin: 20px;
-                }
-                #PaymentForm{
-                    h2{
-                        font-size: 2.5rem;
-                        text-align: center;
-                        color:#999999;
-                        font-family: $primary-font;
-                        span{
-                            font-family: $secondary-font;
-                            font-size: 1.5rem;
-                        }
-                    }
-                    .ant-input{
-                        height: 50px;
-                        border: 1px solid #999999;
-                        border-radius: 4px;
-                    }
-                    padding: 3rem;
-                    background: white;
-                    box-shadow: 0px 0px 7px -2px #0000001a;
-                }
+                padding: 3rem;
+                background: white;
+                box-shadow: 0px 0px 7px -2px #0000001a;
             }
         }
     }
-    .its-spinner{
-        margin: 40px auto;
-    }
-} 
-.anticon-delete{
-    color: #ff5e00;
-    font-size: 1.1rem;
-}
-.footer-container{
-    margin-top: 40px;
-    padding: 2rem;
-    .footer-logo{
-        text-align: center;
-        img{
-            width: 16rem;
-            text-align: center;
-        }
+
+    .my-credits{
         p{
-            text-align: center;
+            background: #1e3946;
+            padding: 0;
             margin: 0;
+            font-size: 0.8rem;
+            color: #80b9d4;
+            a{
+                color: #bae7eb;
+            }
         }
     }
-    h1{
-        margin-bottom: 30px;
-        font-family: $primary-font;
-        color: #305a6f;
-    }
-    a{
-        font-family: $secondary-font;
-        font-weight: 300;
-        font-size: 1rem;
+    // Footer
+    .container-fluid{
+        &.footer-fluid{
+            background-image: url('images/map.png');
+            .footer-container{
+                .row{
+                    margin:0;
+                }
+                margin-top: 40px;
+                background-color: #f9f9f9b8;
+                padding:40px 0rem;
+                .footer-logo{
+                    text-align: center;
+                    img{
+                        width: 16rem;
+                        text-align: center;
+                    }
+                    p{
+                        text-align: center;
+                        margin: 0;
+                    }
+                }
+                h1{
+                    margin-bottom: 30px;
+                    font-family: $primary-font;
+                    color: $secondary-color;
+                }
+                a{
+                    font-family: $secondary-font;
+                    font-weight: 300;
+                    font-size: 1rem;
+                }
+            }
+        }
     }
 }

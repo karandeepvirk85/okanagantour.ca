@@ -3,7 +3,7 @@ import 'antd/dist/antd.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './Components/navbar.component.js'
 import './App.css'
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter, Route } from 'react-router-dom';
 import Home from './Components/home.component.js'
 import Wine from './Components/wine.component.js'
 import Activities from './Components/activities.component.js'
@@ -17,22 +17,22 @@ import Register from './Components/register.component.js'
 import Footer from './Components/footer.component.js'
 function App(){
 	return (
-		<div className="container-fluid">
-			<Router>
-				<Navigation/>
-				<Route path ="/" exact component={Home} />                                 
-				<Route path ="/wine" component={Wine} /> 
-				<Route path ="/activities" component={Activities} />    
-				<Route path ="/cart" component={Cart} />
-				<Route path = "/checkout" component={Checkout} />
-				<Route path ="/about" component={About} />              
-				<Route path ="/contact" component={Contact}/>
-				<Route path ="/login" component={Login} />              
-				<Route path ="/register" component={Register}/>
-				<Route path ="/tour/:slug" component={Single}/>     
-				<Footer/>  
-			</Router>
-		</div>
+		<BrowserRouter>
+			<Navigation/>
+			<Route path ="/" exact component={Home} />                                 
+			<Route path ="/wine" component={Wine} /> 
+			<Route path ="/activities" component={Activities} />    
+			<Route path ="/cart" component={Cart} />
+			<Route path = "/checkout" component={Checkout} />
+			<Route path ="/about" component={About} />              
+			<Route path ="/contact" component={Contact}/>
+			<Route path ="/login" component={Login} />              
+			<Route path ="/register" component={Register}/>
+			<Route path ="/tour/:slug" render={props =>
+              <Single {...props} />}
+            />     
+			<Footer/>  
+		</BrowserRouter>
 	);
 }
 
