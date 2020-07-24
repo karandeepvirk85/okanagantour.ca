@@ -92,7 +92,6 @@ export const returnStacks  = (item, index, stacks) => {
 
 // Return Bootstrap Columns
 export const cartOverview  = (item, index) => {
-    console.log(item);
     return(
         <Col className="cart-overview" sm={12} md={12}  key={index}>
             <div className="cart-inner">

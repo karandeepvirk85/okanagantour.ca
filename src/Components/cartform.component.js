@@ -25,6 +25,7 @@ class CartForm extends Component{
         this.setChildrens       = this.setChildrens.bind(this);
         this.setPickup          = this.setPickup.bind(this);
     }
+
     handleFromSubmit(e){
         e.preventDefault();
         let strDescription = 'N/A/E';
@@ -130,9 +131,14 @@ class CartForm extends Component{
         }
     }
 
+    getTourPrice(){;
+        return  (this.state.adults+this.state.child)*this.props.price;
+    }
+
     render(){
         return(
             <form method="post" id="cart-form" onSubmit={this.handleFromSubmit}>
+                <p className="total-live">Total: {'$'+this.getTourPrice()}</p>
                 <p>
                     <Input name="name" placeholder="Name" />
                 </p>

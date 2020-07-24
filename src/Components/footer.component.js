@@ -29,9 +29,6 @@ export default class Footer extends Component{
                             <p><Link to ="/activities">Activity Tours</Link></p>
                             <p><Link to ="/wine">Wine Tours</Link></p>
                         </Col>
-                        <Col>
-                            <h1>SUBSCRIBE</h1>                
-                        </Col>
                     </Row>
                 </div>
             </div>

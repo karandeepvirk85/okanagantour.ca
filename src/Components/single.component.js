@@ -52,7 +52,7 @@ export default class Single extends Component{
         }
         return this.getPosts();
     }
-    
+       
     render(){
         return this.init();
     }
