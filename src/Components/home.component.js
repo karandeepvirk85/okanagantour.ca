@@ -4,13 +4,14 @@ import {Link} from 'react-router-dom';
 import {RightOutlined} from '@ant-design/icons';
 import Slider from '../Components/homeslider.component.js';
 import Type from '../Components/type.component.js'
-import {cartOverview, priceFormat, getCartTotal, getCart} from '../Common/utiliy.js';
+import * as Utility from '../Common/utiliy.js';
+// cartOverview, priceFormat, getCartTotal, getCart
 export default class Home extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            cart:getCart()
+            cart:Utility.getCart()
         }
     }
 
@@ -21,7 +22,7 @@ export default class Home extends Component{
         if(objCart != null){
             dataList = objCart.map((item, index)=>{
                 return (
-                    cartOverview(item,index)
+                    Utility.cartOverview(item,index)
                 )
             });
         }
@@ -41,7 +42,7 @@ export default class Home extends Component{
                                 {this.getCartOverView()}
                                 <div class="cart-total">
                                     <p>Total</p>
-                                    <p>{priceFormat(getCartTotal(),true)}</p>
+                                    <p>{Utility.priceFormat(Utility.getCartTotal(),true)}</p>
                                 </div>
                                 <div class="cart-buttons">
                                 <Link to = "/cart" class="btn btn-left btn-main">Cart <RightOutlined /></Link>

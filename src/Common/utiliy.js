@@ -24,12 +24,12 @@ const genExtra = () => (
 );
 
 // Get Unique String
-export const uniqueId = () =>{
+ const uniqueId = () =>{
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 
 // Decode HTML Data
-export const renderHTML = (strString) =>{
+ const renderHTML = (strString) =>{
     return React.createElement(
         "div", 
         {dangerouslySetInnerHTML: { __html: strString }}
@@ -37,7 +37,7 @@ export const renderHTML = (strString) =>{
 }
 
 // Get Cart Total
-export const getCartTotal = () =>{
+ const getCartTotal = () =>{
     let cartTotal = 0;
     const items = JSON.parse(localStorage.getItem('cart'));
     if(items != null){
@@ -49,13 +49,13 @@ export const getCartTotal = () =>{
 }
 
 // Get Cart 
-export const getCart = () =>{
+ const getCart = () =>{
     const strCart = localStorage.getItem('cart');
     return strCart;
 }
 
 // Format Price
-export const priceFormat = (strPrice, display=false) =>{
+ const priceFormat = (strPrice, display=false) =>{
     let floatPrice = parseFloat(strPrice);
     if(display === true){
         floatPrice = '$'+floatPrice.toFixed(2);
@@ -67,7 +67,7 @@ export const priceFormat = (strPrice, display=false) =>{
 }
 
 // Return Bootstrap Columns
-export const returnStacks  = (item, index, stacks) => {
+ const returnStacks  = (item, index, stacks) => {
     return(
         <Col className="tour-image" sm={12} md={6} lg={stacks} key={index}>
             <Card title={renderHTML(item.title.rendered)} bordered={false}>
@@ -91,7 +91,7 @@ export const returnStacks  = (item, index, stacks) => {
 }
 
 // Return Bootstrap Columns
-export const cartOverview  = (item, index) => {
+ const cartOverview  = (item, index) => {
     return(
         <Col className="cart-overview" sm={12} md={12}  key={index}>
             <div className="cart-inner">
@@ -103,7 +103,7 @@ export const cartOverview  = (item, index) => {
 }
 
 // Spinner
-export const getSpinner = () =>{
+ const getSpinner = () =>{
     return (
         <Row>
             <Col className="text-center its-spinner">
@@ -114,7 +114,7 @@ export const getSpinner = () =>{
 }
  
 // Single View
-export const returnSingleView = (item) =>{
+ const returnSingleView = (item) =>{
     return (
         <Row>
             <Col xs={12} sm={12} md={12}>
@@ -189,4 +189,15 @@ export const returnSingleView = (item) =>{
             </Col>
         </Row>
     )
+}
+export{
+    uniqueId,
+    renderHTML,
+    getCartTotal,
+    getCart,
+    priceFormat,
+    returnStacks,
+    cartOverview,
+    getSpinner,
+    returnSingleView
 }
