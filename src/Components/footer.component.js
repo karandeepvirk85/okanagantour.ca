@@ -13,7 +13,7 @@ export default class Footer extends Component {
                                 <img src={logo} />
                                 <p>
                                     <a href="https://www.google.com/maps/place/735+Fraser+Rd,+Kelowna,+BC+V1X+3L3/@49.897662,-119.3963787,17z/data=!3m1!4b1!4m5!3m4!1s0x537d8d369ef9e8a7:0x15f502f4f7633bab!8m2!3d49.897662!4d-119.39419">
-                                        735 Fraser Road, Kelowna, V1X3L3
+                                        735 Free Road, Kelowna, V1X3L3
                                     </a>
                                 </p>
                                 <p>
