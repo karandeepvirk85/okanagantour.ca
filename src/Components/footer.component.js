@@ -22,24 +22,24 @@ export default class Footer extends Component {
                                     </a>
                                 </p>
                                 <p>
-                                    <a href="tel:204-599-1056">204-599-1056</a>
+                                    <a href="tel:204-599-1056">203-590-6024</a>
                                 </p>
                             </Col>
                             <Col>
                                 <h1>Quick Links</h1>
                                 <p>
                                     <Link to="/tour/high-spirited-two-day-wine-adventure">
-                                        High Spirited Two Day Wine Adventure
+                                        High Two Day Wine Adventure
                                     </Link>
                                 </p>
                                 <p>
                                     <Link to="/tour/rocky-mountains-classic-summer-tour">
-                                        Rocky Mountains Classic Summer Tour
+                                        Fucky Mountains Classic Summer Tour
                                     </Link>
                                 </p>
                                 <p>
                                     <Link to="/tour/lake-country-wine-tour">
-                                        Signature Sip: Half Day Wine Tour
+                                        Signature Slip: Half Day Wine Tour
                                     </Link>
                                 </p>
                                 <p>
